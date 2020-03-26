@@ -6,21 +6,18 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.drawable.RippleDrawable
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.widget.FrameLayout
-import android.widget.HorizontalScrollView
+import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.ScrollView
 import androidx.annotation.RequiresApi
+import com.google.android.material.ripple.RippleDrawableCompat
 
 class DrawActivity : Activity() {
-  private lateinit var h_scroll_view: HorizontalScrollView
-  private lateinit var scroll_view: ScrollView
-  private lateinit var content: LinearLayout
-
   @RequiresApi(Build.VERSION_CODES.M)
   public override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -30,22 +27,6 @@ class DrawActivity : Activity() {
     container.setBackgroundColor(getColor(R.color.colorAccent))
     val padding = resources.getDimension(R.dimen.padding).toInt()
     container.setPadding(padding, padding, padding, padding)
-
-//    h_scroll_view = HorizontalScrollView(this)
-//    h_scroll_view.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
-//    h_scroll_view.setBackgroundColor(getColor(R.color.colorPrimary))
-//
-//    scroll_view = ScrollView(this)
-//    scroll_view.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
-//
-//    content = LinearLayout(this)
-//    content.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
-//    content.orientation = LinearLayout.VERTICAL
-//
-//    val mainDrawView = DrawView(this)
-//    mainDrawView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
-//    scroll_view.addView(mainDrawView)
-//    h_scroll_view.addView(scroll_view)
 
     val asd = TwoDScrollView(this)
 
@@ -74,6 +55,8 @@ class DrawActivity : Activity() {
     }
 
     public override fun onDraw(canvas: Canvas) {
+
+
       canvas.drawRect(boxRect, boxPaint)
 
 
